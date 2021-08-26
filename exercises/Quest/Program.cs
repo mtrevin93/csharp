@@ -32,6 +32,8 @@ namespace Quest
 ",
                 4, 20
             );
+            Challenge timesTable = new Challenge($"What's {new Random().Next()% 10} times {new Random().Next()% 10}?", 4, 30);
+            Challenge science = new Challenge("What is the boiling point of water in Kelvin rounded to nearest int?", 373, 30);
 
             // "Awesomeness" is like our Adventurer's current "score"
             // A higher Awesomeness is better
@@ -59,11 +61,27 @@ namespace Quest
                 theAnswer,
                 whatSecond,
                 guessRandom,
-                favoriteBeatle
+                favoriteBeatle,
+                timesTable,
+                science
             };
 
             // Loop through all the challenges and subject the Adventurer to them
-            foreach (Challenge challenge in challenges)
+
+            List<Challenge> pickChallenges(){
+            List<Challenge> currentChallenges = new List<Challenge>(){};
+                for (int i = 0; i < 5;){
+                    if (currentChallenges.Contains(challenges[new Random().Next(0, challenges.Count-1)])){
+                        continue;
+                    }
+                    else {
+                    currentChallenges.Add(challenges[new Random().Next(0, challenges.Count-1)]);
+                    i++; };
+                };
+                return currentChallenges;
+            }
+            List<Challenge> starterChallenge = pickChallenges();
+            foreach (Challenge challenge in starterChallenge)
             {
                 challenge.RunChallenge(theAdventurer);
             }
@@ -96,7 +114,8 @@ namespace Quest
             while(repeat != "y" && repeat != "n");
             if (repeat == "y"){
                 repeat = "";
-                 foreach (Challenge challenge in challenges)
+                List<Challenge> nextChallenge = pickChallenges();
+                 foreach (Challenge challenge in nextChallenge)
                 {
                 challenge.RunChallenge(theAdventurer);
                 }
