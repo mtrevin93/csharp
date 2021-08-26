@@ -18,7 +18,7 @@ namespace Quest
             Name = name;
             Awesomeness = 50;
         }
-
+        public Robe ColorfulRobe { get; }
 
         // This method returns a string that describes the Adventurer's status
         // Note one way to describe what this method does is:
