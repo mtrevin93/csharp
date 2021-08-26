@@ -18,6 +18,9 @@ public string ShininessDescription
         if(ShininessLevel >9){
             return "blinding";
         }
+        else{
+            return "Do you even have a hat?";
+        }
     }
 }
 }
