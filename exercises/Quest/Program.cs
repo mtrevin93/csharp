@@ -71,16 +71,19 @@ namespace Quest
             List<Challenge> pickChallenges(){
             List<Challenge> currentChallenges = new List<Challenge>(){};
                 for (int i = 0; i < 5;){
-                    if (currentChallenges.Contains(challenges[new Random().Next(0, challenges.Count-1)])){
+                    int currentIndex = new Random().Next(0, challenges.Count-1);
+                    if (currentChallenges.Contains(challenges[currentIndex])){
                         continue;
                     }
                     else {
-                    currentChallenges.Add(challenges[new Random().Next(0, challenges.Count-1)]);
+                    currentChallenges.Add(challenges[currentIndex]);
                     i++; };
                 };
                 return currentChallenges;
             }
             List<Challenge> starterChallenge = pickChallenges();
+            Console.WriteLine(theAdventurer.GetAdventurerStatus());
+            Console.WriteLine();
             foreach (Challenge challenge in starterChallenge)
             {
                 challenge.RunChallenge(theAdventurer);
@@ -115,10 +118,15 @@ namespace Quest
             if (repeat == "y"){
                 repeat = "";
                 List<Challenge> nextChallenge = pickChallenges();
+                int runOverScore = theAdventurer.Combo * 10;
+                Console.WriteLine(theAdventurer.GetAdventurerStatus());
+                Console.WriteLine();
+                theAdventurer.Awesomeness += runOverScore;
                  foreach (Challenge challenge in nextChallenge)
                 {
                 challenge.RunChallenge(theAdventurer);
                 }
+                score(theAdventurer);
                 repeatChallenge();
             }
             if (repeat == "n"){

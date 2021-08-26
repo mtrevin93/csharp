@@ -27,8 +27,6 @@ namespace Quest
         // This method will take an Adventurer object and make that Adventurer perform the challenge
         public void RunChallenge(Adventurer adventurer)
         {
-            Console.WriteLine("Good luck on your adventure...I hope your are prepared.");
-            Console.WriteLine(adventurer.GetAdventurerDescription());
             Console.Write($"{_text}: ");
             string answer = Console.ReadLine();
 
@@ -39,7 +37,7 @@ namespace Quest
             if (isNumber && numAnswer == _correctAnswer)
             {
                 Console.WriteLine("Well Done!");
-
+                adventurer.Combo++;
                 // Note how we access an Adventurer object's property
                 adventurer.Awesomeness += _awesomenessChange;
             }
@@ -50,8 +48,6 @@ namespace Quest
             }
 
             // Note how we call an Adventurer object's method
-            Console.WriteLine(adventurer.GetAdventurerStatus());
-            Console.WriteLine();
         }
         
     }
