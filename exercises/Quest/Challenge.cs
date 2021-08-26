@@ -51,5 +51,7 @@ namespace Quest
             Console.WriteLine(adventurer.GetAdventurerStatus());
             Console.WriteLine();
         }
+        
     }
 }
+

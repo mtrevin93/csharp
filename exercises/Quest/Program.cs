@@ -66,7 +66,8 @@ namespace Quest
 
             // This code examines how Awesome the Adventurer is after completing the challenges
             // And praises or humiliates them accordingly
-            if (theAdventurer.Awesomeness >= maxAwesomeness)
+            void score(Adventurer adventurer){
+            if (adventurer.Awesomeness >= maxAwesomeness)
             {
                 Console.WriteLine("YOU DID IT! You are truly awesome!");
             }
@@ -78,6 +79,30 @@ namespace Quest
             {
                 Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
             }
+            }
+            score(theAdventurer);
+            //Prompt user to see if they would like to play again after game finishes
+            var repeat = "";
+            void repeatChallenge(){
+            do{
+            Console.WriteLine("Try Again? y/n");
+            repeat = Console.ReadLine();
+            }
+            while(repeat != "y" && repeat != "n");
+            if (repeat == "y"){
+                repeat = "";
+                 foreach (Challenge challenge in challenges)
+                {
+                challenge.RunChallenge(theAdventurer);
+                }
+                repeatChallenge();
+            }
+            if (repeat == "n"){
+               return;
+            }
+            score(theAdventurer);
+            }
+            repeatChallenge();
         }
     }
 }
