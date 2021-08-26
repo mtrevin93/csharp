@@ -1,3 +1,6 @@
+using System.Text;
+using System;
+
 namespace Quest
 {
     // An instance of the Adventurer class is an object that will undergo some challenges
@@ -48,7 +51,21 @@ namespace Quest
         }
         public string GetAdventurerDescription()
         {
-            return $"Adventurer {Name} is equipped with a powerful {ColorfulRobe}";
+            //This code was to give the program the ability to use better grammar in the descipription string
+            // int count = 0;
+            // string colorString = "";
+            // foreach(string color in ColorfulRobe.Colors){
+            //     count++;
+            //     if (count == ColorfulRobe.Colors.Count){
+            //         colorString += ($" and {color}");
+            //     }
+            //     else {
+            //         colorString += $"{color},";
+            //     }
+            // }
+            string colorString = String.Join(" and ",ColorfulRobe.Colors);
+            string description = $"Adventurer {Name} is equipped with a {colorString} {ColorfulRobe.Length} foot long robe \n";
+            return description;
         }
     }
-}
+    }
