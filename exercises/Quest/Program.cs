@@ -49,6 +49,7 @@ namespace Quest
             Robe starterRobe = new Robe{Colors = new List<string>{"Blue","Purple"},Length = 50};
             Hat starterHat = new Hat{ ShininessLevel = 1 };
             Adventurer theAdventurer = new Adventurer(adventurerName, starterRobe, starterHat);
+            Prize rubyPrize = new Prize("ruby");
 
             // A list of challenges for the Adventurer to complete
             // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
@@ -82,13 +83,14 @@ namespace Quest
             {
                 Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
             }
+            rubyPrize.ShowPrize(theAdventurer);
             }
             score(theAdventurer);
             //Prompt user to see if they would like to play again after game finishes
             var repeat = "";
             void repeatChallenge(){
             do{
-            Console.WriteLine("Try Again? y/n");
+            Console.WriteLine("\n Try Again? y/n");
             repeat = Console.ReadLine();
             }
             while(repeat != "y" && repeat != "n");
