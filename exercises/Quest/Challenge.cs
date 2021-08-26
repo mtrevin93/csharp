@@ -27,6 +27,8 @@ namespace Quest
         // This method will take an Adventurer object and make that Adventurer perform the challenge
         public void RunChallenge(Adventurer adventurer)
         {
+            Console.WriteLine("Good luck on your adventure...I hope your are prepared.");
+            Console.WriteLine(adventurer.GetAdventurerDescription());
             Console.Write($"{_text}: ");
             string answer = Console.ReadLine();
 
