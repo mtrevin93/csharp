@@ -47,8 +47,8 @@ namespace Quest
             var adventurerName = Console.ReadLine();
 
             Robe starterRobe = new Robe{Colors = new List<string>{"Blue","Purple"},Length = 50};
-
-            Adventurer theAdventurer = new Adventurer(adventurerName, starterRobe);
+            Hat starterHat = new Hat{ ShininessLevel = 1 };
+            Adventurer theAdventurer = new Adventurer(adventurerName, starterRobe, starterHat);
 
             // A list of challenges for the Adventurer to complete
             // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.

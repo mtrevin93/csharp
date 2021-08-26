@@ -66,7 +66,7 @@ namespace Quest
             //     }
             // }
             string colorString = String.Join(" and ",ColorfulRobe.Colors);
-            string description = $"Adventurer {Name} is equipped with a {colorString} {ColorfulRobe.Length} foot long robe \n";
+            string description = $"Adventurer {Name} is equipped with a {colorString} {ColorfulRobe.Length} foot long robe and a {ShinyHat.ShininessDescription} hat. \n";
             return description;
         }
     }
