@@ -73,7 +73,7 @@ namespace Quest
             List<Challenge> pickChallenges(){
             List<Challenge> currentChallenges = new List<Challenge>(){};
                 for (int i = 0; i < 5;){
-                    int currentIndex = new Random().Next(0, challenges.Count-1);
+                    int currentIndex = new Random().Next(0, challenges.Count);
                     if (currentChallenges.Contains(challenges[currentIndex])){
                         continue;
                     }
