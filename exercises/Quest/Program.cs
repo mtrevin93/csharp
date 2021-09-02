@@ -32,7 +32,9 @@ namespace Quest
 ",
                 4, 20
             );
-            Challenge timesTable = new Challenge($"What's {new Random().Next()% 10} times {new Random().Next()% 10}?", 4, 30);
+            int multiplier1 = new Random().Next()% 10;
+            int multiplier2 = new Random().Next()% 10;
+            Challenge timesTable = new Challenge($"What's {multiplier1} times {multiplier2}?", multiplier1 * multiplier2, 30);
             Challenge science = new Challenge("What is the boiling point of water in Kelvin rounded to nearest int?", 373, 30);
 
             // "Awesomeness" is like our Adventurer's current "score"
